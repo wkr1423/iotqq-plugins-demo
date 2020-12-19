@@ -36,7 +36,7 @@ def send(ToQQ,Content,sendToType,atuser=0,sendMsgType='TextMsg',groupid=0):
     tmp['atUser']=atuser
     tmp1 = json.dumps(tmp)
     requests.post(webapi+'/v1/LuaApiCaller?funcname=SendMsg&qq='+robotqq,data=tmp1)
-def zan(QQ)
+def zan(QQ):
     #QQ名片赞
     tmp={}
     tmp['UserID']=QQ
