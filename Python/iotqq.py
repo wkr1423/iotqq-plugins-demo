@@ -36,7 +36,7 @@ def send(ToQQ,Content,sendToType,atuser=0,sendMsgType='TextMsg',groupid=0):
     tmp['atUser']=atuser
     tmp1 = json.dumps(tmp)
     requests.post(webapi+'/v1/LuaApiCaller?funcname=SendMsg&qq='+robotqq,data=tmp1)
-def zan(QQ)
+def zan(QQ):
     #QQ名片赞
     tmp={}
     tmp['UserID']=QQ
@@ -69,16 +69,19 @@ class Mess:
 # ----------------------------------------------------- 
 # Socketio
 # ----------------------------------------------------- 
+"""此处有问题
 def beat():
     while(1):
         sio.emit('GetWebConn',robotqq)
         time.sleep(60)
-
+"""
+"""最好自己写
 @sio.event
 def connect():
     print('connected to server')
     sio.emit('GetWebConn',robotqq)#取得当前已经登录的QQ链接
     beat() #心跳包，保持对服务器的连接
+"""
 
 @sio.on('OnGroupMsgs')
 def OnGroupMsgs(message):
